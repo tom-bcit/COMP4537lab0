@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+}
+
+.myButton {
+  height: 5em;
+  width: 10em;
+  border: 1px solid grey;
+  margin: 5px;
+  color: black;
+}
