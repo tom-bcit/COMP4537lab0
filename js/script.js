@@ -51,19 +51,27 @@ class ButtonAnimator {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
 
+    // Calculate button dimensions in pixels
     const buttonWidthInPx = buttonWidth * (viewportWidth / 100) + 5;
     const buttonHeightInPx = buttonHeight * (viewportHeight / 100) + 5;
 
     for (let i = 0; i < duration; i++) {
       this.buttons.forEach((button) => {
         button.style.position = "absolute";
-        const maxTop = viewportHeight - 2 * buttonHeightInPx;
-        const maxLeft = viewportWidth - 2 * buttonWidthInPx;
 
-        button.style.top = `${Math.round(Math.floor(Math.random() * maxTop)/100)*100}px`;
-        button.style.left = `${Math.round(Math.floor(Math.random() * maxLeft - 2*buttonWidthInPx)/100)*100}px`;
+        // Ensure buttons stay within bounds
+        const maxTop = viewportHeight - buttonHeightInPx;
+        const maxLeft = viewportWidth - buttonWidthInPx;
+
+        // Generate random positions within bounds
+        const randomTop = Math.random() * maxTop;
+        const randomLeft = Math.random() * maxLeft;
+
+        button.style.top = `${randomTop}px`;
+        button.style.left = `${randomLeft}px`;
       });
-      await this.delay(2000); 
+
+      await this.delay(2000); // Delay between animations
     }
   }
 
@@ -71,6 +79,7 @@ class ButtonAnimator {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }
+
 
 // Class 3: GameController
 class GameController {
