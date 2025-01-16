@@ -61,7 +61,7 @@ class ButtonAnimator {
         const maxLeft = viewportWidth - 2 * buttonWidthInPx;
 
         button.style.top = `${Math.round(Math.floor(Math.random() * maxTop)/100)*100}px`;
-        button.style.left = `${Math.round(Math.floor(Math.random() * maxLeft + 2*buttonWidthInPx)/100)*100}px`;
+        button.style.left = `${Math.round(Math.floor(Math.random() * maxLeft - 2*buttonWidthInPx)/100)*100}px`;
       });
       await this.delay(2000); 
     }
