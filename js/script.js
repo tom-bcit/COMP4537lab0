@@ -48,15 +48,14 @@ class ButtonAnimator {
   async animate(duration) {
     const buttonWidth = 10; 
     const buttonHeight = 5; 
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
 
-    // Calculate button dimensions in pixels
-    const buttonWidthInPx = buttonWidth * (viewportWidth / 100) + 5;
-    const buttonHeightInPx = buttonHeight * (viewportHeight / 100) + 5;
 
     for (let i = 0; i < duration; i++) {
       this.buttons.forEach((button) => {
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        const buttonWidthInPx = buttonWidth * (viewportWidth / 100) + 5;
+        const buttonHeightInPx = buttonHeight * (viewportHeight / 100) + 5;
         button.style.position = "absolute";
 
         // Ensure buttons stay within bounds
