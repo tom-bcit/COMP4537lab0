@@ -46,10 +46,9 @@ class ButtonAnimator {
   }
 
   async animate(duration) {
-    const buttonWidth = 10; 
-    const buttonHeight = 5; 
-    const buttonWidthInPx = buttonWidth * (window.innerWidth / 100) + 5;
-    const buttonHeightInPx = buttonHeight * (window.innerHeight / 100) + 5;
+    const buttonRect = button.getBoundingClientRect();
+    const buttonWidth = buttonRect.width; // Width of the button in pixels
+    const buttonHeight = buttonRect.height; // Height of the button in pixels
 
     for (let i = 0; i < duration; i++) {
       this.buttons.forEach((button) => {
