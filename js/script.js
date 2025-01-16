@@ -46,7 +46,7 @@ class ButtonAnimator {
   }
 
   async animate(duration) {
-    const buttonRect = button.getBoundingClientRect();
+    const buttonRect = this.buttons[0].getBoundingClientRect();
     const buttonWidth = buttonRect.width; // Width of the button in pixels
     const buttonHeight = buttonRect.height; // Height of the button in pixels
 
@@ -58,8 +58,8 @@ class ButtonAnimator {
         button.style.position = "absolute";
 
         // Ensure buttons stay within bounds
-        const maxTop = viewportHeight - buttonHeightInPx;
-        const maxLeft = viewportWidth - buttonWidthInPx;
+        const maxTop = viewportHeight - buttonHeight;
+        const maxLeft = viewportWidth - buttonWidth;
 
         // Generate random positions within bounds
         const randomTop = Math.random() * maxTop;
